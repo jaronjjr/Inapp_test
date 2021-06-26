@@ -9,11 +9,28 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 const modelDb = require("./models/index");
+// var router = express.Router();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname+'/views/index.ejs'));
+// app.set('view engine', 'html');
+app.engine('html', require('ejs').renderFile);
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/", (req, res) => {
+  res.render("index"); // index refers to index.ejs
+ });
+
+/////
+
+// router.use('/api',function(req,res){
+//   res.sendFile(path.join(__dirname+'/index.html'));
+//   //__dirname : It will resolve to your project folder.
+// });
+
+
+////
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
