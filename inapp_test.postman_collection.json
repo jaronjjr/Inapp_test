@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "701ef212-94a8-4344-81c5-7d143c6dfc7a",
+		"name": "inapp_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save Note",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"jaron\",\n    \"description\":\"okok\",\n    \"date\":\"2021-06-26\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/saveNote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"saveNote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/getAllNote",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"getAllNote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a note",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"updated\",\n    \"description\":\"updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/updateNote?id=53c4a5b6-f867-49d1-88e5-3095d0cf5bca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"updateNote"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "53c4a5b6-f867-49d1-88e5-3095d0cf5bca"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Note",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"updated\",\n    \"description\":\"updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/deleteNote?id=53c4a5b6-f867-49d1-88e5-3095d0cf5bca",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"deleteNote"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "53c4a5b6-f867-49d1-88e5-3095d0cf5bca"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
