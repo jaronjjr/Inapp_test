@@ -2,10 +2,10 @@ import {noteService} from '../service/note.service'
 
 
 const saveNote=(req, res, next) => {
-  noteService.saveNote(req, res, (datas) => {
+  noteService.saveNote(req, res, (note) => {
         res.status(200).json({
           status: "success",
-          data: datas,
+          data: note,
           message: "Saved successfully",
         });
       })
@@ -26,8 +26,6 @@ const getAllNote = (req, res, next) => {
       });
     })
     .catch(err => {
-      logger.error(JSON.stringify(err.stack));
-
       return next(err);
     });
 };
@@ -58,7 +56,6 @@ const updateNote = (req, res, next) => {
       });
     })
     .catch(err => {
-      logger.error(err);
       return next(err);
     });
 };
@@ -80,9 +77,7 @@ const removeNote = (req, res, next) => {
         });
       }
     })
-    // .catch(err => {
-    //   return next(err);
-    // });
+    
 };
 
 export const noteController ={

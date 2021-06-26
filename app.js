@@ -14,13 +14,15 @@ const modelDb = require("./models/index");
 // view engine setup
 // app.set('views', path.join(__dirname+'/views/index.ejs'));
 // app.set('view engine', 'html');
-app.engine('html', require('ejs').renderFile);
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/", (req, res) => {
-  res.render("index"); // index refers to index.ejs
- });
+app.use(express.static(path.join(__dirname, "public")));
+app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
+app.set("view engine", "jade");
+
+// app.get("/", (req, res) => {
+//   res.render("index"); // index refers to index.ejs
+//  });
 
 /////
 

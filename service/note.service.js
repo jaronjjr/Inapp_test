@@ -32,7 +32,7 @@ const noteModel = models.note
             next(note);
           })
           .catch(err => {
-            logger.error("Fail! Error -> " + err);
+            console.log(err)
           });
       }
     });
@@ -52,41 +52,14 @@ const noteModel = models.note
     return noteModel.update(req.body, {
       where: { id: req.query.id }
     }).then(result => {
-      // logger.info(result);
+     console.log(result)
     });
   };
   
-  // const removeNote = (req,res,NoteID) => {
-  //   // logger.info(NoteID);
-  
-  //   noteModel.findByPk(NoteID).then(note => {
-  //     if (!note) {
-  //       return res.status(400).send({
-  //         message: "Note Not Found"
-  //       });
-  //     }
-  //     else{
-  //       return noteModel.destroy({
-  //         where: { id: NoteID }
-  //       })
-  //     }
-  //   });
-  
-    // return noteModel.destroy({
-    //   where: { id: NoteID }
-    // })
-    // .then(() => {
-    //   logger.info("deleted successfully a note with id = " + NoteID);
-    // });
-  // };
 
   const removeNote =  (req, res, next) => {
      noteModel.findByPk(req.query.id).then(noteExist => {
       if (!noteExist) {
-        // res.status(400).json({
-        //   status: "success",
-        //   message: "note doesnot exist"
-        // });
         next(400);
       } else {
          return noteModel.destroy({
@@ -96,7 +69,7 @@ const noteModel = models.note
             next(200);
           })
           .catch(err => {
-            // logger.error("Fail! Error -> " + err);
+           console.log(err)
           });
       }
     });
